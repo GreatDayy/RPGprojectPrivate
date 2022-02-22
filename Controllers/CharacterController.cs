@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using rolePlayingGame.Models;
 using rolePlayingGame.Services.CharacterServices;
@@ -22,21 +23,21 @@ namespace rolePlayingGame.Controllers
       
 
         //List of Characters
-        public ActionResult<List<Character>> GetAll() {
-            return Ok(_characterService.GetAll());
+        public async Task<ActionResult<List<Character>>> GetAll() {
+            return Ok(await _characterService.GetAll());
         }
 
         [HttpGet("{id}")]
        //A Single Character
-        public ActionResult<Character> GetSingle(int id) {
+        public async Task<ActionResult<Character>> GetSingle(int id) {
 
-            return Ok(_characterService.GetSingle(id));
+            return Ok(await _characterService.GetSingle(id));
         }
 
 
         [HttpPost]
-        public ActionResult<List<Character>> AddCharacter(Character newCharacter) {
-            return Ok(_characterService.AddCharacter(newCharacter));
+        public async Task<ActionResult<List<Character>>> AddCharacter(Character newCharacter) {
+            return Ok(await _characterService.AddCharacter(newCharacter));
         }
 
 

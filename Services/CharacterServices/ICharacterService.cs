@@ -1,14 +1,15 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using rolePlayingGame.Models;
 
 namespace rolePlayingGame.Services.CharacterServices
 {
     public interface ICharacterService
     {
-         List<Character> GetAll();
-         Character GetSingle(int id);
+         Task<List<Character>> GetAll();
+         Task<Character> GetSingle(int id);
 
-        List<Character> AddCharacter(Character newCharacter);
+        Task<List<Character>> AddCharacter(Character newCharacter);
 
     }
 }
